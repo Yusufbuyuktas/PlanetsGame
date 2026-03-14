@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Sripts\DropPoint.cs" />
+    <Compile Include="Assets\Sripts\GameManager.cs" />
     <Compile Include="Assets\Sripts\DragDrop.cs" />
   </ItemGroup>
   <ItemGroup>
