@@ -21,7 +21,8 @@ public class DropPoint : MonoBehaviour,IDropHandler
 
             if (dragDrop.name == gameObject.name)
             {
-                dragDrop.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+                dragDrop.GetComponent<RectTransform>().position = GetComponent<RectTransform>().position;
+
                 dragDrop.dogruYereBirakildiMi = true;
                 dragDrop.GetComponent<CanvasGroup>().blocksRaycasts = false;
                 gameManager.DogruArttir();
