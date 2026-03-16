@@ -1,5 +1,6 @@
 using UnityEngine;
-using System.Collections.Generic; // List kullanabilmek için ekledik
+using System.Collections.Generic;
+using UnityEngine.SceneManagement; // List kullanabilmek için ekledik
 
 public class GameManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject one, two, tree;
     [SerializeField] Transform DragObjects; // Bu artýk sahnede duranlar deðil, hiyerarþiyi yönetmek için
-
+    [SerializeField] GameObject Win, Lose;
     // --- YENÝ EKLENENLER ---
     [Header("Gezegen Ayarlarý")]
     public List<GameObject> gezegenPrefablar; // Tüm gezegen prefablarýný buraya sürükle
@@ -57,12 +58,12 @@ public class GameManager : MonoBehaviour
 
         if (DogruAdet == 8)
         {
-            Debug.Log("Oyun Bitti! Harikasýn.");
+            Win.SetActive(true);
         }
         else
         {
             // Gezegen doðru yere býrakýldýktan 1 saniye sonra yenisi gelsin
-            Invoke("YeniGezegenGetir", 1.2f);
+            Invoke("YeniGezegenGetir", 0.8f);
         }
     }
 
@@ -88,10 +89,15 @@ public class GameManager : MonoBehaviour
 
     void ShutDownTheDrags()
     {
+        Lose.SetActive(true);
         // Mevcut gezegenin sürüklenmesini kapat
         if (mevcutGezegen != null)
         {
             mevcutGezegen.GetComponent<DragDrop>().enabled = false;
         }
+    }
+    public void StartAgain()
+    {
+        SceneManager.LoadScene(0);
     }
 }
