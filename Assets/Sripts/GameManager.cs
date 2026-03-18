@@ -100,4 +100,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void DigerSahneyeGec(string sahneAdi)
+    {
+        SceneManager.LoadScene(sahneAdi);
+    }
 }
